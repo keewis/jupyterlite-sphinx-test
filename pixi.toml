@@ -16,15 +16,20 @@ example = { path = ".", editable = true }
 [feature.doc.dependencies]
 sphinx = ">=9.1.0,<10"
 jupyterlite-sphinx = ">=0.22.1,<0.23"
+sphinx-autobuild = ">=2025.8.25,<2026"
+jupyterlite-xeus-python = ">=1.0.0,<2"
+jupyterlite-xeus = ">=2.0.0,<3"
 
 [feature.doc.tasks]
-doc = { cmd = "make html", depends-on = ["build"], cwd = "doc" }
+build-docs = { cmd = "make html", depends-on = ["build"], cwd = "doc" }
+autobuild-docs = { cmd = "sphinx-autobuild -b html -j auto . _build", depends-on = ["build"], cwd = "doc" }
 
 [feature.build.dependencies]
 rattler-build = ">=0.57.2,<0.58"
+python-build = ">=1.4.0,<2"
 
 [feature.build.tasks]
-build = { cmd = "rattler-build build -c conda-forge --output-dir local-channel --recipe ci/recipe/recipe.yaml", cwd = "." }
+build = { cmd = "rm -rf local-channel; rattler-build build -c conda-forge --output-dir local-channel --recipe ci/recipe/recipe.yaml", cwd = "." }
 
 [environments]
 doc = ["doc"]

@@ -1,0 +1,9 @@
+name: xeus-python-kernel
+channels:
+  - file:///tmp/test/local-channel
+  - https://prefix.dev/emscripten-forge
+  - conda-forge
+dependencies:
+  - xeus-python
+  - numpy
+  - example

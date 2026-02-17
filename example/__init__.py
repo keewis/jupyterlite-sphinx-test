@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def f1(a):
     """
     Parameters
