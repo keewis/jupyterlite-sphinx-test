@@ -1,0 +1,42 @@
+context:
+  name: example
+  version: 0.1.dev0
+  path: /tmp/test
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+- path: ${{ path }}
+
+build:
+  number: 0
+  noarch: python
+  script: SETUPTOOLS_SCM_PRETEND_VERSION=${{ version }} ${{ PYTHON }} -m pip install -vvv . --no-deps --no-build-isolation
+
+  files:
+    exclude:
+    - '**/__pycache__/**'
+    - '**/*.pyc'
+    - '**/test_*.py'
+  python:
+    skip_pyc_compilation:
+    - '**/*.py'
+
+requirements:
+  build:
+  - python
+  host:
+  - python
+  - pip
+  - setuptools
+  - setuptools-scm
+  run:
+  - python
+
+about:
+  summary: N-D labeled arrays and datasets in Python
+  license: Apache-2.0
+  homepage: https://github.com/pydata/xarray
+  repository: https://github.com/pydata/xarray

@@ -1,0 +1,31 @@
+[workspace]
+authors = ["Justus Magin <keewis@posteo.de>"]
+channels = ["conda-forge"]
+name = "test"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = ">=3.14.3,<3.15"
+
+[pypi-dependencies]
+example = { path = ".", editable = true }
+
+[feature.doc.dependencies]
+sphinx = ">=9.1.0,<10"
+jupyterlite-sphinx = ">=0.22.1,<0.23"
+
+[feature.doc.tasks]
+doc = { cmd = "make html", depends-on = ["build"], cwd = "doc" }
+
+[feature.build.dependencies]
+rattler-build = ">=0.57.2,<0.58"
+
+[feature.build.tasks]
+build = { cmd = "rattler-build build -c conda-forge --output-dir local-channel --recipe ci/recipe/recipe.yaml", cwd = "." }
+
+[environments]
+doc = ["doc"]
+build = { features = ["build"], no-default-feature = true }
