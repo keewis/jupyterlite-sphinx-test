@@ -1,7 +1,7 @@
 context:
   name: example
   version: 0.1.dev0
-  path: /tmp/test
+  path: /home/jmagin/repos/jupyterlite-sphinx-test
 
 package:
   name: ${{ name }}
