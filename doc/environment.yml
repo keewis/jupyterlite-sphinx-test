@@ -1,8 +1,9 @@
 name: xeus-python-kernel
 channels:
-  - file:///tmp/test/local-channel
+  # - file:///home/jmagin/repos/jupyterlite-sphinx-test/local-channel
   - https://prefix.dev/emscripten-forge-4x
   - https://prefix.dev/conda-forge
 dependencies:
   - xeus-python
-  - example
+  - numpy
+  # - example
