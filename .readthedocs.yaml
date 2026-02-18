@@ -16,7 +16,7 @@ build:
       - asdf install pixi latest
       - asdf global pixi latest
     pre_install:
-      - git update-index --assume-unchanged docs/conf.py
+      - git update-index --assume-unchanged doc/conf.py
     install:
       - pixi install -e docs
     build:
