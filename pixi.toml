@@ -15,13 +15,14 @@ example = { path = ".", editable = true }
 
 [feature.doc.dependencies]
 sphinx = ">=9.1.0,<10"
-jupyterlite-sphinx = ">=0.22.1,<0.23"
+jupyterlite-sphinx = ">=0.20,<0.22"
 sphinx-autobuild = ">=2025.8.25,<2026"
 jupyterlite-xeus = ">=4"
 
 [feature.doc.tasks]
-build-docs = { cmd = "make html", depends-on = ["build"], cwd = "doc" }
-autobuild-docs = { cmd = "sphinx-autobuild -b html -j auto . _build", depends-on = ["build"], cwd = "doc" }
+build-docs = { cmd = "python -m sphinx -b html -j auto . _build/html", depends-on = ["build"], cwd = "doc" }
+autobuild-docs = { cmd = "sphinx-autobuild -b html -j auto . _build/html", depends-on = ["build"], cwd = "doc" }
+build-docs-rtd = { cmd = "python -m sphinx -b html -j auto . _build/html", cwd = "doc" }
 
 [feature.build.dependencies]
 rattler-build = ">=0.57.2,<0.58"
