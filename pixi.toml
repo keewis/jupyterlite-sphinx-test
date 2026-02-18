@@ -17,8 +17,7 @@ example = { path = ".", editable = true }
 sphinx = ">=9.1.0,<10"
 jupyterlite-sphinx = ">=0.22.1,<0.23"
 sphinx-autobuild = ">=2025.8.25,<2026"
-jupyterlite-xeus-python = ">=1.0.0,<2"
-jupyterlite-xeus = ">=2.0.0,<3"
+jupyterlite-xeus = ">=4"
 
 [feature.doc.tasks]
 build-docs = { cmd = "make html", depends-on = ["build"], cwd = "doc" }
