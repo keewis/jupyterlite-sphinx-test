@@ -18,13 +18,13 @@ build:
     pre_install:
       - git update-index --assume-unchanged doc/conf.py
     install:
-      - pixi install -e docs
+      - pixi install -e doc
     build:
       html:
-        - pixi run -e docs build-docs-rtd
+        - pixi run -e doc build-docs-rtd
 
 sphinx:
   fail_on_warning: true
-  configuration: docs/conf.py
+  configuration: doc/conf.py
 
 formats: []
