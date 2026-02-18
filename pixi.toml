@@ -22,7 +22,7 @@ jupyterlite-xeus = ">=4"
 [feature.doc.tasks]
 build-docs = { cmd = "python -m sphinx -b html -j auto . _build/html", depends-on = ["build"], cwd = "doc" }
 autobuild-docs = { cmd = "sphinx-autobuild -b html -j auto . _build/html", depends-on = ["build"], cwd = "doc" }
-build-docs-rtd = { cmd = "python -m sphinx -b html -j auto . _build/html", cwd = "doc" }
+build-docs-rtd = { cmd = "python -m sphinx -b html -j auto . $READTHEDOCS_OUTPUT/html", cwd = "doc" }
 
 [feature.build.dependencies]
 rattler-build = ">=0.57.2,<0.58"
